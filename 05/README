@@ -1,0 +1,23 @@
+nadav.vitri, arie.shtine
+===============================================================================
+Nadav Vitri, ID 203819909, nadav.vitri@mail.huji.ac.il
+Arie Shtine, ID 204616122, arie.shtine@mail.huji.ac.il
+===============================================================================
+
+                           Project 5 - Computer Architecture
+                           ----------------------- 
+  
+
+Submitted Files
+---------------
+README - This file.
+Computer.hdl - The HACK computer, including CPU, ROM and RAM.
+CPU.hdl - The Hack CPU.
+CpuMul.hdl - This chip is an extension of the book CPU.
+ExtendAlu.hdl - Extends ALU.
+Memory.hdl - The complete address space of the Hack computer's memory.
+
+Remarks
+-------
+* CpuMul is extacly the same like regular CPU chip, but with change to use
+ExtendAlu instead of ALU chip.

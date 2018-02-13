@@ -1,0 +1,26 @@
+nadav.vitri, arie.shtine
+===============================================================================
+Nadav Vitri, ID 203819909, nadav.vitri@mail.huji.ac.il
+Arie Shtine, ID 204616122, arie.shtine@mail.huji.ac.il
+===============================================================================
+
+                           Project 6 - Assembler
+                           ----------------------- 
+  
+
+Submitted Files
+---------------
+README - This file.
+Assembler.py - The main file that runs the program.
+Parse.py - maintain the parsing of line.
+Code_tables.py - contain the code tables.
+Makefile - Make file for the program.
+Assembler - Bash file.
+
+Remarks
+-------
+* We first doing first pass for adding pair of label and number of line.
+Then we read the asm file line by line and sending line for parsing,
+there we also send every part to be translate in code_tables.
+After parsing and translating line we write the hack binary line in the
+output file (filename.hack).

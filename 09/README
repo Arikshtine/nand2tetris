@@ -1,0 +1,28 @@
+nadav.vitri, arie.shtine
+===============================================================================
+Nadav Vitri, ID 203819909, nadav.vitri@mail.huji.ac.il
+Arie Shtine, ID 204616122, arie.shtine@mail.huji.ac.il
+===============================================================================
+
+                           Project 9 - Goal Game 
+                           ----------------------- 
+  
+
+Submitted Files
+---------------
+README - This file.
+Ball.jack - Manage the ball.
+Gate.jack - Manage the gate.
+GoalGame.jack - The game.
+GoalKeeper.jack - Manage the goal keeper.
+Main.jack - Runs the whole game.
+
+
+Remarks
+-------
+To move left or right is with the appropriate arrows keys.
+To kick the ball to the gate use up arrow key.
+If the user want to exit use "q".
+The goal in the game is to kick the ball to the gate, there is
+a goal keeper that every goal is moving faster and it's harder to do goal.
+

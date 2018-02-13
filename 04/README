@@ -1,0 +1,23 @@
+nadav.vitri, arie.shtine
+===============================================================================
+Nadav Vitri, ID 203819909, nadav.vitri@mail.huji.ac.il
+Arie Shtine, ID 204616122, arie.shtine@mail.huji.ac.il
+===============================================================================
+
+                           Project 4 - Machine language
+                           ----------------------- 
+  
+
+Submitted Files
+---------------
+README - This file.
+Divide.asm - Divide two numbers.
+Fill.asm - When a key is pressed (any key), the program blackens the screen.
+Mult.asm - Multiplies two numbers.
+Sort.asm - Sort array in descending order.
+
+Remarks
+-------
+* We use Shifts for Divide.asm.
+Also, in Sort we choose to do the Bubble Sort which is easy to write.
+

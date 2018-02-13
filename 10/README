@@ -1,0 +1,25 @@
+nadav.vitri, arie.shtine
+===============================================================================
+Nadav Vitri, ID 203819909, nadav.vitri@mail.huji.ac.il
+Arie Shtine, ID 204616122, arie.shtine@mail.huji.ac.il
+===============================================================================
+
+                           Project 10 - Compilation 
+                           ----------------------- 
+  
+
+Submitted Files
+---------------
+README - This file.
+JackAnalyzer.py - Runs the program and translate jack file to XML file.
+CompilationEngine.py - Manage the translating of each token.
+JackTokenizer.py - The basic gramers of jack language.
+Makefile - Make file for the program.
+Assembler - Bash file.
+
+Remarks
+-------
+As you recommend we first tokenized the jack file to token.
+After having list of tokens we follow the table of the expected part for
+every command in the jack language.
+

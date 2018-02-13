@@ -1,0 +1,79 @@
+class Ball {
+	field int x;
+	field int y;
+
+	constructor Ball new(){
+		let x = 250;
+		let y = 239;
+		do draw();
+		return this;
+	}
+	
+	method int getX(){
+		return x;
+    }
+	
+    method int getY(){
+		return y;
+    }
+	
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+    
+    
+    
+    /** Draws the Ball on the screen. */
+   method void draw() {
+      do Screen.setColor(true);
+      do Screen.drawRectangle(x, y, x + 5, y + 5);
+      return;
+   }
+
+
+    /** Erases the Ball from the screen. */
+    method void erase() {
+      do Screen.setColor(false);
+      do Screen.drawRectangle(x, y, x + 5, y + 5);
+      do dispose();
+      return;
+    }
+
+
+
+   method void moveLeft() {
+      if (x > 5) {
+         do Screen.setColor(false);
+         do Screen.drawRectangle((x + 5) - 5, y, x + 5, y + 5);
+         let x = x - 6;
+         do Screen.setColor(true);
+         do Screen.drawRectangle(x, y, x + 5, y + 5);
+      }
+      return;
+   }
+
+   method void moveRight() {
+      if ((x + 1) < 510) {
+         do Screen.setColor(false);
+         do Screen.drawRectangle(x, y, x + 5, y + 5);
+         let x = x + 6;
+         do Screen.setColor(true);
+         do Screen.drawRectangle((x + 5) - 5, y, x + 5, y + 5);
+      }
+      return;
+   }
+
+
+	   method void kick() {
+      if (y > 1) {
+         do Screen.setColor(false);
+         do Screen.drawRectangle(x, (y + 5) - 1, x + 5, y + 5);
+         let y = y - 2;
+         do Screen.setColor(true);
+         do Screen.drawRectangle(x, y, x + 5, y + 1);
+      }
+      return;
+   }
+}

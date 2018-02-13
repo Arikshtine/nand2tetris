@@ -1,0 +1,28 @@
+nadav.vitri, arie.shtine
+===============================================================================
+Nadav Vitri, ID 203819909, nadav.vitri@mail.huji.ac.il
+Arie Shtine, ID 204616122, arie.shtine@mail.huji.ac.il
+===============================================================================
+
+                           Project 2 - Boolean Arithmetic
+                           ----------------------- 
+  
+
+Submitted Files
+---------------
+README - This file.
+Add16.hdl - Adds two 16-bit values.
+Inc16.hdl - 16-bit incrementer.
+HalfAdder.hdl - Computes the sum of two bits.
+FullAdder.hdl - Computes the sum of three bits.
+ALU.hdl - The ALU (Arithmetic Logic Unit).
+ShiftLeft.hdl - The chip will multiply by 2 its input.
+ShiftRight.hdl - The chip will divide by 2 its input.
+Mul.hdl - The chip will multiply 2 numbers.
+
+
+Remarks
+-------
+* The Mul chip is like long decimal multiplication but much easy because we need
+only to "know" multiplication of 0 and 1.
+

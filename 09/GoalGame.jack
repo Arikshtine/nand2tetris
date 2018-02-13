@@ -1,0 +1,232 @@
+
+
+class GoalGame {
+   field Gate gate; 
+   field Ball ball;
+   field GoalKeeper keeper;
+   field boolean kick;
+   field int direction;
+   field int speed;
+   field int score;
+   field boolean exit;
+   field Array levelArray;
+   field int level;
+
+
+   constructor GoalGame new() {
+      let ball = Ball.new();
+      let keeper = GoalKeeper.new();
+      let kick = false;
+      let gate = Gate.new();  
+      let direction = 0;
+      let level = 0;
+      let levelArray = Array.new(6);
+      let levelArray[0] = 17;
+      let levelArray[1] = 14;
+      let levelArray[2] = 11;
+      let levelArray[3] = 8;
+      let levelArray[4] = 5;
+      let levelArray[5] = 2;
+      let speed = levelArray[level];
+      let score = 0;
+      let exit = false;
+      return this;
+   }
+
+   /** Disposes this game. */
+   method void dispose() {
+      do ball.dispose();
+      do keeper.dispose();
+      do gate.dispose();
+      do levelArray.dispose();
+      do Memory.deAlloc(this);
+      return;
+   }
+   
+  method void moveBall() {
+      if ((direction = 1) & ~(kick)) { do ball.moveLeft(); }
+      if ((direction = 2) & ~(kick)) { do ball.moveRight(); }
+      do Sys.wait(3);  // delays the next movement
+      return;
+   }
+   
+   method void kickBall(){
+	  if (kick) { do ball.kick() ; }
+      do Sys.wait(3);  // delays the next movement
+	  return;	
+   }
+   
+   method void displayGoalKeeper(){
+        do Sys.wait(speed); 
+		do keeper.move();
+		return;
+    }
+    
+    
+    method void isGameOver(){
+		var boolean over;
+		let over = false;
+		if (keeper.isBallOnGoalKeeper(ball.getX(), ball.getY())){
+			let over = true;
+		}	
+		if (over){
+		do Screen.clearScreen();
+		do Output.printString("MESSI SAD :( YOUR SCORE IS :  ");
+		do Output.printInt(score);
+		let exit=true;
+		}
+		return;
+	}
+	
+	
+	method boolean isWasGool(){
+		var boolean ball_x_in, ball_y_in;
+		let ball_x_in = false;
+		let ball_y_in = false;
+		if ((ball.getX() > gate.getX()) & (ball.getX() < (gate.getX() + 100))){
+			let ball_x_in = true;
+		}
+		if (ball.getY() < 10){
+			let ball_y_in = true;
+		}
+		if (ball_y_in & ball_x_in){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	
+	method boolean isBallOut(){
+		var boolean ball_x_out, ball_y_out;
+		let ball_x_out = false;
+		let ball_y_out = false;
+		if (~((ball.getX() > gate.getX()) & (ball.getX() < (gate.getX() + 100)))){
+			let ball_x_out = true;
+		}
+		if (ball.getY() < 10){
+			let ball_y_out = true;
+		}
+		if (ball_y_out & ball_x_out){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	
+	method void checkBall(){
+		var boolean out;
+		let out = isBallOut();
+		if (out){
+			if (score > 0) {
+				let score = score - 1;
+			}
+			do ball.erase();
+			do gate.erase();
+			do keeper.erase();
+			do gate.draw();
+			do keeper.draw();
+			let ball = Ball.new();
+			let kick = false;
+		}
+		return;
+	}
+	
+
+    method void checkGool(){
+		var boolean gool;
+		let gool = isWasGool();
+		if(gool){
+			let score = score + 1;
+			if (level < 5){
+				let level = level + 1;
+				let speed = levelArray[level];
+			}
+			do ball.erase();
+			do gate.erase();
+			do keeper.erase();
+			do gate.draw();
+			do keeper.draw();
+			let ball = Ball.new();
+			let kick = false;
+		}
+		return;
+    }
+   
+
+
+   /** Runs the game: handles the user's inputs and moves the square accordingly */
+   method void run() {
+      var char key;  // the key currently pressed by the user  
+      while (~exit) {
+         // waits for a key to be pressed
+         while ((~exit) & (key = 0)) {
+            let key = Keyboard.keyPressed();
+            do displayGoalKeeper();
+            do kickBall();
+            do isGameOver();
+            do checkGool();
+            do checkBall();
+            do printState();
+         }
+         if (kick){ let kick = true; }  
+         if (key = 81)  {  // q key
+			let exit = true;
+			do Screen.clearScreen();
+			do Output.printString("MESSI SAD :( YOUR SCORE IS :  ");
+			do Output.printInt(score);
+			}     
+         if (key = 131) { let kick = true; }   // up arrow
+         if (key = 130) { let direction = 1; }   // left arrow
+         if (key = 132) { let direction = 2; }   // right arrow
+		 do isGameOver();
+         // waits for the key to be released
+         while (~(key = 0) & ~exit) {
+            let key = Keyboard.keyPressed();
+            do displayGoalKeeper();
+            do moveBall();
+            do isGameOver();
+            do printState();
+         }
+		 do checkGool();
+		 do checkBall();
+     } 
+     return;
+   }
+   
+   
+   
+   method void displayWelcomeScreen() {
+    	var int i;
+    	var int key;
+    	let key = 0;
+    	do Screen.clearScreen();
+    	do Output.moveCursor(5, 22);
+    	do Output.printString(" Goal Game!!!! (*)");
+    	do Output.moveCursor(9, 19);
+		do Output.printString("First kick out for a try");
+		do Output.moveCursor(13, 21);
+    	do Output.printString("Press any key to start");
+    	while (key = 0) {
+			let key = Keyboard.keyPressed();
+		}
+    	do Screen.clearScreen();
+    	return;
+    }
+    
+    
+    method void printState(){
+		do Output.moveCursor(1,0);
+    	do Output.printString("Goals: ");
+    	do Output.printInt(score);
+		return;
+    }
+    
+
+}
+
+
+

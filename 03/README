@@ -1,0 +1,27 @@
+nadav.vitri, arie.shtine
+===============================================================================
+Nadav Vitri, ID 203819909, nadav.vitri@mail.huji.ac.il
+Arie Shtine, ID 204616122, arie.shtine@mail.huji.ac.il
+===============================================================================
+
+                           Project 3 - Sequential Logic
+                           ----------------------- 
+  
+
+Submitted Files
+---------------
+README - This file.
+Bit.hdl - 1-bit register.
+PC.hdl - A 16-bit counter with load and reset control bits.
+RAM8.hdl - Memory of 8 registers, each 16 bit-wide.
+RAM64.hdl - Memory of 64 registers, each 16 bit-wide.
+RAM512.hdl - Memory of 512 registers, each 16 bit-wide.
+RAM4K.hdl - Memory of 4K registers, each 16 bit-wide.
+RAM16K.hdl - Memory of 16K registers, each 16 bit-wide. 
+
+
+Remarks
+-------
+* The basic unit is 16 bit register. Then all the RAM's build from 8 previous
+level.
+

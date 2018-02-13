@@ -1,0 +1,22 @@
+nadav.vitri, arie.shtine
+===============================================================================
+Nadav Vitri, ID 203819909, nadav.vitri@mail.huji.ac.il
+Arie Shtine, ID 204616122, arie.shtine@mail.huji.ac.il
+===============================================================================
+
+                           Project 12 - Operating System  
+                           ----------------------- 
+  
+
+Submitted Files
+---------------
+README - This file.
+All the jack files for the OS:
+Array.jack, Keyboard.jack, Math.jack, Memory.jack, Output.jack
+Screen.jack, String.jack, Sys.jack
+
+Remarks
+-------
+As you recommend we implement the jack files throw the given algorithmis
+appear in video unit.
+
